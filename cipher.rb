@@ -8,10 +8,8 @@ lines.each do |line|
   elsif i == 1
     ciphfrom = line.split('')
   else
-    puts ciphto
-    puts ciphfrom
     arrline = line.split('').map do |c|
-      ciphto[ciphfrom.find_index(c)]
+      c == " " ? c : ciphto[ciphfrom.find_index(c)]
     end
     puts arrline.join('')
   end
