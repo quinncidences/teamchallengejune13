@@ -1,12 +1,26 @@
+# def nib(l, n)
+#   if n <= l
+#     return 1
+#   end
+#   sum = 0
+#   n.times do |index|
+#     sum += nib(l, n-(index+2))
+#   end
+#   return sum
+# end
+
 def nib(l, n)
-  if n <= l
-    return 1
+  results = []
+  l.times do
+    results.push(1)
   end
-  sum = 0
-  n.times do |index|
-    sum += nib(l, n-(index+2))
+
+  (n-l).times do
+    results.push(results[results.length-l..results.length-1].inject(:+))
   end
-  return sum
+
+  results[n-1]
+
 end
 
 lines = ARGF.read.split("\n")
